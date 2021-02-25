@@ -11,7 +11,7 @@ parser.add_argument('--evalue', help='evalue for blastn search')
 args = parser.parse_args()
 
 # search sequences in nt database
-ret = call("blastn -db nt -outfmt '6 delim=@#@# 'qaccver saccver sskingdom ssciname salltitles pident evalue' -num_threads " + args.num_threads +
+ret = call("blastn -db nt -outfmt '6 delim=@#@# qaccver saccver sskingdom ssciname salltitles pident evalue' -num_threads " + args.num_threads +
 	" -out blastn_report.csv -query " + args.fasta + "-evalue " + args.evalue, shell=True)
 if ret!=0:
     print("blastn search failed")
